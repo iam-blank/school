@@ -1,11 +1,26 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, url_for
 import smtplib
 from email.message import EmailMessage
 import os
+from pymongo import MongoClient
+from pymongo.server_api import ServerApi
 
 school_email = os.getenv('school_email')
 EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 admin_email = os.getenv('admin_email')
+
+
+# Create a new client and connect to the server
+uri =os.getenv('uri')
+client = MongoClient(uri, server_api=ServerApi('1'))
+
+
+# try:
+#     client.admin.command('ping')
+#     print("Pinged your deployment. You successfully connected to MongoDB!")
+# except Exception as e:
+#     print(e)
+
 
 
 def send_admission_email(name, email, phone, message):
@@ -114,6 +129,26 @@ def contact():
         # return redirect('/contact')
 
     return render_template('contact.html')
+
+@app.route('/result', methods =['GET','POST'])
+def result():
+    if request.method == 'POST':
+        roll = request.form['roll']
+        class_ = request.form['class']
+        unique_id = roll+ class_
+
+        # uri = os.getenv('MONGO_URI')
+        # client = MongoClient(uri)
+        results = client['school']['result']
+        result = results.find_one({'roll': roll, 'class': class_})
+        # code to render html file
+        if result :
+             return render_template('displayresult.html', result=result)
+        else :
+            flash("result not found check class and roll no. and try again")
+            return redirect(url_for('result'))
+
+    return render_template('result.html')
 
 
 if __name__ == '__main__':

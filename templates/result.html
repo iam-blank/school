@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Check Result - School Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .result-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .result-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result-message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="result-container">
+    <h2>Check Your Result</h2>
+    <form action="{{url_for('result')}}" method="POST">
+      <div class="form-group">
+        <label for="roll">Roll Number</label>
+        <input type="text" id="roll" name="roll" required />
+      </div>
+      <div class="form-group">
+        <label for="class">Class</label>
+        <select id="class" name="class" required>
+          <option value="">-- Select Class --</option>
+          <option value="1">Class 1</option>
+          <option value="2">Class 2</option>
+          <option value="3">Class 3</option>
+          <option value="4">Class 4</option>
+          <option value="5">Class 5</option>
+          <option value="6">Class 6</option>
+          <option value="7">Class 7</option>
+          <option value="8">Class 8</option>
+          <option value="9">Class 9</option>
+          <option value="10">Class 10</option>
+        </select>
+      </div>
+      <button type="submit">View Result</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div style="color: red; margin-bottom: 10px;">
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+    <!-- Placeholder for result message -->
+    <!-- This can be rendered by backend or shown using JS -->
+    <div class="result-message">
+      <!-- Result will appear here after form submission -->
+    </div>
+  </div>
+
+</body>
+</html>

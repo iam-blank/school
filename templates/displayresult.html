@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .result-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+    .result-card h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .result-details {
+      text-align: left;
+    }
+    .result-details p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-card">
+    <h2>Result Details</h2>
+    <div class="result-details">
+      <p><strong>Name:</strong> {{ result.name }}</p>
+      <p><strong>Roll Number:</strong> {{ result.roll }}</p>
+      <p><strong>Class:</strong> {{ result.class }}</p>
+      <p><strong>Math:</strong> {{ result.math }}</p>
+      <p><strong>Science:</strong> {{ result.science }}</p>
+      <p><strong>English:</strong> {{ result.english }}</p>
+      <p><strong>Total Marks:</strong> {{ result.total }}</p>
+      <p><strong>Result:</strong> {{ result.status }}</p>
+    </div>
+    <a href="{{url_for('result')}}"> back</a>
+  </div>
+</body>
+</html>
