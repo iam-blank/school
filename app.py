@@ -64,7 +64,7 @@ def send_contact_email(name, email, message):
 
 
 app = Flask(__name__)
-app.secret_key = "secret123"  # Needed for flashing messages
+app.secret_key = os.getenv('secret_key')  # Needed for flashing messages
 
 @app.route('/')
 def home():
