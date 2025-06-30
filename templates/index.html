@@ -6,68 +6,6 @@
   <title>Polytechnic English School</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-  <style>
-    
-
-    .hero {
-      background: url('https://source.unsplash.com/1600x400/?school') center/cover no-repeat;
-      color: white;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-shadow: 2px 2px 4px #000;
-    }
-
-    .container {
-      padding: 40px 20px;
-    }
-
-    .section-title {
-      color: #444;
-      border-bottom: 2px solid #888;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-    }
-
-    .cards {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .card {
-      border: 1px solid #ccc;
-      padding: 20px;
-      width: 280px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      background-color: white;
-    }
-
-    .card h3 {
-      margin-top: 0;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-
-    img {
-      border-radius: 8px;
-      margin: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    .card p {
-  line-height: 1.6;
-}
-.card strong {
-  color: #2e7d32;
-}
-
-  </style>
 </head>
 <body>
 
@@ -96,7 +34,7 @@
 
   <section class="container">
     <h2 class="section-title">About Our School</h2>
-    <p>Polytechnic English School is a premier institution committed to delivering quality education and fostering holistic development. With a legacy of excellence and a focus on innovation, we nurture future leaders and responsible citizens through our dedicated staff and student-centered approach.</p>
+    <p class ="section-content">Polytechnic English School is a premier institution committed to delivering quality education and fostering holistic development. With a legacy of excellence and a focus on innovation, we nurture future leaders and responsible citizens through our dedicated staff and student-centered approach.</p>
   </section>
 
   <section class="container">
@@ -119,28 +57,24 @@
       </div>
     </div>
   </section>
-
+  
   <section class="container">
     <h2 class="section-title">Announcements</h2>
-    <ul>
+    <ul class = "notice-contents section-content">
       <li>🏆 Admissions open for 2025–2026 session!</li>
       <li>🎉 Annual Sports Day: 25th July 2025</li>
       <li>📢 Parent-Teacher Meeting: 5th August 2025</li>
     </ul>
   </section>
-  <section class="container">
+  <section class="container notice-contents" id="notice-board">
   <h2 class="section-title">Notice Board</h2>
-  <div class="cards">
-    <div class="card" style="width: 100%; max-width: 800px;">
-      <ul>
+      <ul class ="section-content">
         <li>📄 School will remain closed on 21st June 2025 due to local holiday.</li>
         <li>📘 Mid-term exams start from 10th September 2025. Time table will be published soon.</li>
         <li>🖥️ Computer lab upgrade will begin from 1st August 2025. Limited access during this period.</li>
         <li>🚌 New school transport routes updated on 15th July 2025. Check notice board in admin office.</li>
         <li style="color: red;">   result declared!!! <a href="{{url_for('result')}}"> link</a></li>
       </ul>
-    </div>
-  </div>
 </section>
 
 
@@ -158,14 +92,14 @@
   <div class="cards">
     <div class="card">
       <h3>Director's Message</h3>
-      <img src="https://source.unsplash.com/100x100/?man,portrait" alt="Director Photo" style="border-radius: 50%; margin-bottom: 15px;">
+      <img src="https://source.unsplash.com/100x100/?man,portrait" alt="Director Photo">
       <p>Welcome to Polytechnic English School! We envision a world where education leads the way to transformation and progress. Our mission is to empower students with knowledge, character, and a sense of responsibility towards society. We are committed to creating an environment where learning is joyful, meaningful, and lifelong.</p>
       <p><strong>- Mr. Shyam Prasad</strong><br>Director</p>
     </div>
 
     <div class="card">
       <h3>Principal's Message</h3>
-      <img src="https://source.unsplash.com/100x100/?man,portrait" alt="Principal Photo" style="border-radius: 50%; margin-bottom: 15px;">
+      <img src="https://source.unsplash.com/100x100/?man,portrait" alt="Principal Photo">
       <p>At Polytechnic English School, we believe every child is unique and full of potential. Our academic framework, supported by co-curricular activities, ensures all-round development. We aim to create a community of learners who are confident, compassionate, and ready to face the future with courage and integrity.</p>
       <p><strong>- Mr Khemraj Prasad</strong><br>Principal</p>
     </div>

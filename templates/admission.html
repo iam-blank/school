@@ -1,55 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admissions - Polytechnic English School</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <style>
-
-    .container {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #6e6e6e;
-      border-bottom: 2px solid #9e9e9e;
-      padding-bottom: 5px;
-    }
-
-    ul, ol {
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    .form-section {
-      margin-top: 40px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    button {
-      background-color: #9e9e9e;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-
-  </style>
 </head>
+
 <body>
 
   <header>
@@ -65,62 +23,61 @@
     <a href="/contact">Contact</a>
   </nav>
 
-  <div class="container">
-    <h2>Admission Process</h2>
-    <ol>
+  <section class="container">
+    <h2 class="section-title">Admission Process</h2>
+    <ol class="section-content">
       <li>Fill out the application form (online or offline).</li>
       <li>Submit required documents (birth certificate, previous school report, etc.).</li>
       <li>Attend an interaction/interview session (for certain grades).</li>
       <li>Receive admission confirmation and pay the initial fee.</li>
     </ol>
+  </section>
 
-    <h2>Eligibility Criteria</h2>
-    <ul>
-      <li><strong>Nursery:</strong> Minimum age 3 years as of March 31, 2025</li>
-      <li><strong>KG to Grade 10:</strong> Based on prior class completion and availability</li>
-    </ul>
+  <section class="container">
+    <h2 class="section-title">Fee Structure (2025-26)</h2>
+  <ul class="section-content">
+    <li><strong>Nursery to KG:</strong> ₹1,000 per month</li>
+    <li><strong>Classes 1 to 5:</strong> ₹1,200 per month</li>
+    <li><strong>Classes 6 to 10:</strong> ₹1,500 per month</li>
+  </ul>
+  <p><strong>note*:-</strong> Transportation and optional activities charged separately</p>
+  </section>
 
-    <h2>Fee Structure (2025-26)</h2>
-    <ul>
-      <li><strong>Nursery to KG:</strong> ₹25,000 per term</li>
-      <li><strong>Classes 1 to 5:</strong> ₹30,000 per term</li>
-      <li><strong>Classes 6 to 10:</strong> ₹35,000 per term</li>
-    </ul>
-    <p>*Transportation and optional activities charged separately</p>
+  <section class="container">
+    <h2 class="section-title">Important Dates</h2>
+  <ul class="section-content">
+    <li><strong>Application Opens:</strong> 1st July 2025</li>
+    <li><strong>Last Date to Apply:</strong> 20th August 2025</li>
+    <li><strong>Entrance Tests/Interviews:</strong> 1st to 5th September 2025</li>
+  </ul>
+  </section>
 
-    <h2>Important Dates</h2>
-    <ul>
-      <li><strong>Application Opens:</strong> 1st July 2025</li>
-      <li><strong>Last Date to Apply:</strong> 20th August 2025</li>
-      <li><strong>Entrance Tests/Interviews:</strong> 1st to 5th September 2025</li>
-    </ul>
-
-    <div class="form-section">
-      <h2>Admission Inquiry Form</h2>
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <div style="color: rgb(37, 9, 9); font-weight: bold;">
-            {{ messages[0] }}
-          </div>
-        {% endif %}
-      {% endwith %}
-
-      <form method="POST" action="/admission">
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
-
-        <label for="message">Your Message :</label>
-        <textarea id="message" name="message" rows="4"></textarea>
-
-        <button type="submit">Submit Inquiry</button>
-      </form>
+  <div class="form-section container">
+    <h2 class ="section-title">Admission Inquiry Form</h2>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div style="color: rgb(37, 9, 9); font-weight: bold;">
+      {{ messages[0] }}
     </div>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/admission" class="form">
+      <label for="name">Full Name:</label>
+      <input type="text" placeholder="Enter Your Name" id="name" name="name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" placeholder="Enter Email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" placeholder="Enter Phone Number" id="phone" name="phone" required>
+
+      <label for="message">Your Message :</label>
+      <textarea id="message" placeholder="Type Your Query" name="message" rows="4"></textarea>
+
+      <button type="submit">Submit Query</button>
+    </form>
+  </div>
   </div>
 
   <footer>
@@ -129,4 +86,5 @@
   </footer>
 
 </body>
+
 </html>
